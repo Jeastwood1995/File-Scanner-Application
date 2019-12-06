@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace File_Scanner_Application
 {
-    public partial class Form1 : Form
+    public partial class login_form : Form
     {
-        public Form1()
+        private string username, password;
+
+        public login_form()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void login_form_Load(object sender, EventArgs e)
         {
 
         }
@@ -37,12 +32,13 @@ namespace File_Scanner_Application
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
-            
+            username = this.username_field.Text;
+            password = this.password_field.Text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void forgottenPassword_Click(object sender, EventArgs e)
         {
 
         }
@@ -52,14 +48,35 @@ namespace File_Scanner_Application
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void username_field_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void password_field_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new external_supplier_form().Show();
+            this.Hide();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_form_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            new Utils().closeApplication(e);
         }
     }
 }
