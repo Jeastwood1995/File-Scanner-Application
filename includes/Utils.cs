@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Collections;
+using System.Collections;
 
 namespace File_Scanner_Application
 {
@@ -12,9 +17,10 @@ namespace File_Scanner_Application
      */
     class Utils
     {
-        
+        static HttpClient client = new HttpClient(); 
+
         public void closeApplication(FormClosingEventArgs e)
-        { 
+        {
             // ---- If windows is shutting down, 
             // ---- I don't want to hold up the process
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
@@ -35,6 +41,19 @@ namespace File_Scanner_Application
                         break;
                 }
             }
+        }
+
+        public void showAlertBox(String message) {
+            switch(message) {
+                case "Please enter a value for all of the fields":
+                    MessageBox.Show(message, "Empty Values", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+            }
+        }
+
+        public ArrayList Send(List<String> data) {
+            
+            return data;
         }
     }
 }
